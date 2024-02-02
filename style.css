@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    position: relative;
+}
+body .img{
+    position:fixed;
+    z-index: 100;
+    bottom: 60px;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.053);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.388);
+    height: 50px;
+    width: 50px;
+    left: 60px;
+}
+.section{
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.918);
+    flex-wrap: wrap;
+}
+.card{
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.084);
+    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.331);
+    margin: 10px;
+    transition: all 0.5s;
+}
+img{
+    width: 400px;
+    border-radius: 10px;
+}
+h1{
+    margin: 10px 0px;
+}
+p{
+    margin: 10px 0px;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+}
+/* header ________________________________ */
+header{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: larger;
+    position: fixed;
+    left: 0px;
+    background-color: white;
+    right: 0px;
+    top: 0px;
+}
+.title{
+    font-weight: bold;
+}
+
+header .main-menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li{
+    list-style: none;
+    margin: 0px 20px;
+}
+
+.card:hover{
+    scale: 1.02;
+}
+
+/* footer ------------------------- */
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+.section-title{
+
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.section-title h2{
+    padding: 20px 20px;
+    
+}
+.line{
+    height: 4px;
+    border-radius: 10px;
+    width: 40vw;
+    background-color: rgb(0, 0, 0);
+    animation: line 2s infinite alternate-reverse;
+}
+@keyframes line {
+    from{
+        width: 40vw;
+    }
+    to{
+        width: 20vw;
+    }
+}

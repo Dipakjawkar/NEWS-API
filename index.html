@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+</style>
+
+<body>
+    <img class="img" src="./notification-icon.png" alt="">
+    <header>
+        <div class="title">NEWS WEBSITE</div>
+        <div class="main-menu">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Login</li>
+            </ul>
+        </div>
+    </header>
+    <br><br>
+    <div class="section-title">
+        <div class="line"></div>
+        <h2>NEWS</h2>
+        <div class="line"></div>
+    </div>
+    <div class="section" id="sec">
+        <div class="card">
+            <img src="https://images.unsplash.com/source-404?fit=crop&fm=jpg&h=800&q=60&w=1200" alt="">
+            <div class="card-info">
+                <p>#Technology</p>
+                <h1>Lorem ipsum dolor sit amet.</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo deserunt necessitatibus
+                    cupiditate saepe cum.</p>
+                <a href=""><button class="btn">View More</button> </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <i>Copyright @2024</i>
+    </footer>
+</body>
+
+<script>
+
+    const section = document.getElementById('sec');
+
+    const fetchNews = async () => {
+        
+        const currentDate = new Date(Date.now());
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth();
+        const year = currentDate.getFullYear();
+
+        let res = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=${year}-${day}-${month}&sortBy=publishedAt&apiKey=17efd685e24f48c5a43d2a0f36bc3537`);
+        res = await res.json();
+        console.log(res.articles)
+
+
+        for (let i = 0; i < 10; i++) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `<img src=${res.articles[i].urlToImage} alt="">
+        <div class="card-info">
+            <h1>${res.articles[i].title}</h1>
+            <p>${res.articles[i].description}</p>
+            <a href=${res.articles[i].url}><button class="btn">View More</button> </a>
+           
+        </div>`
+            section.append(card);
+        }
+
+
+
+
+    }
+    fetchNews()
+
+</script>
+
+</html>
